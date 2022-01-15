@@ -11,12 +11,13 @@ gerarValorAletorio = () => {
 pegarPersonagem = () => {
     let numeroAleatorio = gerarValorAletorio();
     return fetch(`https://rickandmortyapi.com/api/character/${numeroAleatorio}`, {
-        method: 'GET'
+        method: 'GET',
         headers: {
-            Accept: 'application/json',
+        Accept: 'application/json',
             "content-type": 'application/json'
         }
-    }).then( response) => response.json()).then((data) => {
+    }).then((response) => response.json())
+    .then((data) => {
         imagem.src = data.image;
         imagem.alt = data.name;
         nomeDoPersonagem.innerHTML = data.name;
